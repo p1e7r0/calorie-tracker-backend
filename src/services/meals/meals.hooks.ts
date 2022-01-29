@@ -1,6 +1,6 @@
-// Application hooks that run for every service
+import { HooksObject } from '@feathersjs/feathers';
 
-module.exports = {
+export default {
   before: {
     all: [],
     find: [],

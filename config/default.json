@@ -3,7 +3,7 @@
   "port": 3030,
   "public": "../public/",
   "paginate": {
-    "default": 50,
+    "default": 10,
     "max": 50
   },
   "mongodb": "mongodb://192.168.0.18:27017/calorie-tracker"

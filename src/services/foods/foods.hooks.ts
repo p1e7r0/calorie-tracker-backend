@@ -1,12 +1,9 @@
+import search from '../../hooks/search';
 
-
-const returnSavedRecord = require('../../hooks/return-saved-record');
-const debug = require('../../hooks/debug');
-
-module.exports = {
+export default {
   before: {
     all: [],
-    find: [],
+    find: [search()],
     get: [],
     create: [],
     update: [],
@@ -18,7 +15,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [debug(), returnSavedRecord()],
+    create: [],
     update: [],
     patch: [],
     remove: []
