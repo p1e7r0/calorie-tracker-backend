@@ -1,6 +1,9 @@
 const search = require('../../hooks/search');
 
 
+const deleteMany = require('../../hooks/delete-many');
+
+
 module.exports = {
   before: {
     all: [],
@@ -9,7 +12,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [deleteMany()]
   },
 
   after: {

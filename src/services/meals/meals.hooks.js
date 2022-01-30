@@ -1,3 +1,5 @@
+const deleteMany = require("../../hooks/delete-many");
+
 module.exports = {
   before: {
     all: [],
@@ -6,7 +8,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [deleteMany()],
   },
 
   after: {
@@ -16,7 +18,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -26,6 +28,6 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };

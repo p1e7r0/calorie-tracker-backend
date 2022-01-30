@@ -28,7 +28,8 @@
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
     "dev": "nodemon src/",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "mocha": "mocha test/ --recursive --exit",
+    "publish": "docker build -t p1e7r0/calorie-tracker-backend . && docker push p1e7r0/calorie-tracker-backend"
   },
   "standard": {
     "env": [
