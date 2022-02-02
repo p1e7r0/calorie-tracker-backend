@@ -11,7 +11,8 @@ module.exports = function (app) {
       type: { type: String, required: true },
       date: { type: Date, required: true },
       rows: { type: Array, required: true },
-      kcalTotal: { type: Number, required: true },
+      kcalTotal: { type: Number },
+      userKcal: { type: Object, required: true },
     },
     {
       timestamps: true,

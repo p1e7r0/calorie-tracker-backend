@@ -3,9 +3,8 @@
 
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
-  return async context => {
-    context.params = { query : { _id: context.params.query }};
-    console.log('file: delete-many.js ~ line 8 ~ context.params', context.params);
+  return async (context) => {
+    context.params = { query: { _id: context.params.query } };
     return context;
   };
 };

@@ -1,9 +1,10 @@
 const deleteMany = require("../../hooks/delete-many");
+const filterByDate = require("../../hooks/filter-by-date");
 
 module.exports = {
   before: {
     all: [],
-    find: [],
+    find: [filterByDate()],
     get: [],
     create: [],
     update: [],
