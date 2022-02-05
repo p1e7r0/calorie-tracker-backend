@@ -1,8 +1,9 @@
 import { Db } from 'mongodb';
 import { Service, MongoDBServiceOptions } from 'feathers-mongodb';
 import { Application } from '../../declarations';
+import Meal from '../../models/Meal';
 
-export class Meals extends Service {
+export class Meals extends Service<Meal> {
   //eslint-disable-next-line @typescript-eslint/no-unused-vars
   constructor(options: Partial<MongoDBServiceOptions>, app: Application) {
     super(options);
