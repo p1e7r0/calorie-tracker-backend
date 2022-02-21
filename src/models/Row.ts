@@ -1,4 +1,4 @@
-import Food from "./Food";
+import Food from './Food';
 
 interface Row {
   id: string;

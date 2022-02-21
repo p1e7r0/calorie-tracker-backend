@@ -1,15 +1,14 @@
-import deleteMany from '../../hooks/delete-many';
-import filterByDate from '../../hooks/filter-by-date';
+import { HooksObject } from '@feathersjs/feathers';
 
 export default {
   before: {
     all: [],
-    find: [filterByDate()],
+    find: [],
     get: [],
     create: [],
     update: [],
     patch: [],
-    remove: [deleteMany()],
+    remove: []
   },
 
   after: {
@@ -19,7 +18,7 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: [],
+    remove: []
   },
 
   error: {
@@ -29,6 +28,6 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: [],
-  },
+    remove: []
+  }
 };
