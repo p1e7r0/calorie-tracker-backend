@@ -9,9 +9,15 @@ export default (options = {}): Hook => {
     if (leftovers) {
       context.params.query = {
         ...query,
+
         // type: {
         //   $in: ['breakfast', 'lunch', 'dinner', 'snack'],
         // },
+
+        date: {
+          $gt: new Date(2022, 6, 1).toISOString(),
+        },
+
         $sort: {
           date: -1,
         },
