@@ -1,6 +1,6 @@
-import Row from "./Row";
-import MealType from "./MealType";
-import UserKcal from "./UserKcal";
+import Row from './Row';
+import MealType from './MealType';
+import UserKcal from './UserKcal';
 
 interface Meal {
   _id?: string;

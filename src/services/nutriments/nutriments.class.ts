@@ -25,16 +25,16 @@ export const users: Array<User> = [
     fat_range: [41, 82],
     carbohydrates_range: [47, 139],
   },
-  {
-    id: 'b2a50105-d171-4ae2-b490-755e728fccab',
-    givenName: 'Elena',
-    familyName: 'Bellinelli',
-    weight: 52.4,
-    kcal_max: 1560,
-    protein_range: [80, 104],
-    fat_range: [26, 52],
-    carbohydrates_range: [169, 228],
-  },
+  // {
+  //   id: 'b2a50105-d171-4ae2-b490-755e728fccab',
+  //   givenName: 'Elena',
+  //   familyName: 'Bellinelli',
+  //   weight: 52.4,
+  //   kcal_max: 1560,
+  //   protein_range: [80, 104],
+  //   fat_range: [26, 52],
+  //   carbohydrates_range: [169, 228],
+  // },
 ];
 
 interface Data {

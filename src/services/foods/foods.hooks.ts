@@ -1,5 +1,3 @@
-import { HooksObject } from '@feathersjs/feathers';
-
 import search from '../../hooks/search';
 
 import deleteMany from '../../hooks/delete-many';
@@ -12,7 +10,7 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: [deleteMany()]
+    remove: [deleteMany()],
   },
 
   after: {
@@ -22,7 +20,7 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -32,6 +30,6 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };

@@ -13,7 +13,6 @@ export default (options = {}): Hook => {
         $in: items.map((item) => new ObjectId(item)),
       },
     };
-    console.log(context.params.query);
     return context;
   };
 };

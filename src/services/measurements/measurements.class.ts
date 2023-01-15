@@ -9,8 +9,8 @@ export class Measurements extends Service {
 
     const client: Promise<Db> = app.get('mongoClient');
 
-    client.then(db => {
+    client.then((db) => {
       this.Model = db.collection('measurements');
     });
   }
-};
+}
