@@ -77,14 +77,14 @@ export class Nutriments {
       };
 
       (items as Meal[]).forEach((meal) => {
-        meal.rows?.forEach(async ({ userKcal, food: { _id }, quantity }) => {
+        meal.rows?.forEach(async ({ food: { _id }, quantity }) => {
           const food = foodsMap[_id] ?? {};
-          const { percentage } = userKcal[user.id];
+
           data.carbohydrates_g =
-            data.carbohydrates_g + (food.carbohydrates_g ?? 0) * percentage * (quantity / 100.0);
-          data.protein_g = data.protein_g + (food.protein_g ?? 0) * percentage * (quantity / 100.0);
-          data.fat_g = data.fat_g + (food.fat_g ?? 0) * percentage * (quantity / 100.0);
-          data.kcal = data.kcal + (food.kcal ?? 0) * percentage * (quantity / 100.0);
+            data.carbohydrates_g + (food.carbohydrates_g ?? 0) * (quantity / 100.0);
+          data.protein_g = data.protein_g + (food.protein_g ?? 0) * (quantity / 100.0);
+          data.fat_g = data.fat_g + (food.fat_g ?? 0) * (quantity / 100.0);
+          data.kcal = data.kcal + (food.kcal ?? 0) * (quantity / 100.0);
         });
       });
       return {

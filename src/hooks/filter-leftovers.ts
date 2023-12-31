@@ -21,9 +21,6 @@ export default (options = {}): Hook => {
         $sort: {
           date: -1,
         },
-        'userKcal.leftovers': {
-          $gt: 0,
-        },
       };
     }
     return context;
