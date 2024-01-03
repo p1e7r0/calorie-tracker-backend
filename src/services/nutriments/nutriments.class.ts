@@ -77,8 +77,8 @@ export class Nutriments {
       };
 
       (items as Meal[]).forEach((meal) => {
-        meal.rows?.forEach(async ({ food: { _id }, quantity }) => {
-          const food = foodsMap[_id] ?? {};
+        meal.rows?.forEach(async ({ food: { _id, ...rest }, quantity }) => {
+          const food = foodsMap[_id] ?? rest;
 
           data.carbohydrates_g =
             data.carbohydrates_g + (food.carbohydrates_g ?? 0) * (quantity / 100.0);

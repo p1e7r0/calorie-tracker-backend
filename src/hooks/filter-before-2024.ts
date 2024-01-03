@@ -3,22 +3,24 @@
 import { Hook, HookContext } from '@feathersjs/feathers';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default (options = {}): Hook => {
+const filterBefore2024 = (options = {}): Hook => {
   return async (context: HookContext): Promise<HookContext> => {
-    const { leftovers, ...query } = context.params.query ?? {};
-    if (leftovers) {
-      context.params.query = {
-        ...query,
+    const { query } = context.params.query ?? {};
 
-        date: {
-          $gt: new Date(2024, 1, 1).toISOString(),
-        },
+    context.params.query = {
+      ...query,
 
-        $sort: {
-          date: -1,
-        },
-      };
-    }
+      date: {
+        $gt: new Date(2023, 1, 1).toISOString(),
+      },
+
+      $sort: {
+        date: 1,
+      },
+    };
+
     return context;
   };
 };
+
+export default filterBefore2024;

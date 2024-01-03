@@ -1,7 +1,9 @@
+import filterBefore2024 from '../../hooks/filter-before-2024';
+
 export default {
   before: {
     all: [],
-    find: [],
+    find: [filterBefore2024()],
     get: [],
     create: [],
     update: [],
