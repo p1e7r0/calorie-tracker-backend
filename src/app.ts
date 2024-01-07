@@ -6,6 +6,8 @@ import cors from 'cors';
 
 import feathers from '@feathersjs/feathers';
 import configuration from '@feathersjs/configuration';
+import 'dotenv/config';
+
 import express from '@feathersjs/express';
 
 import { Application } from './declarations';

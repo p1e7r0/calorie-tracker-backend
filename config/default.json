@@ -6,5 +6,5 @@
     "default": 50,
     "max": 50
   },
-  "mongodb": "mongodb://192.168.0.18:27017/calorie-tracker"
+  "mongodb": "MONGODB"
 }
