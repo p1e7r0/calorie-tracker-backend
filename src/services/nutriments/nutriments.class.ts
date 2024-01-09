@@ -21,20 +21,10 @@ export const users: Array<User> = [
     familyName: 'Balestra',
     weight: 81.2,
     kcal_max: 1745,
-    protein_range: [180, 205],
-    fat_range: [41, 82],
+    protein_range: [80, 160],
     carbohydrates_range: [47, 139],
+    fat_range: [41, 82],
   },
-  // {
-  //   id: 'b2a50105-d171-4ae2-b490-755e728fccab',
-  //   givenName: 'Elena',
-  //   familyName: 'Bellinelli',
-  //   weight: 52.4,
-  //   kcal_max: 1560,
-  //   protein_range: [80, 104],
-  //   fat_range: [26, 52],
-  //   carbohydrates_range: [169, 228],
-  // },
 ];
 
 interface Data {
