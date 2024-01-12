@@ -3,6 +3,6 @@ import { Application } from '../declarations';
 
 export default function (app: Application): void {
   app.use('/version', (req: any, res: any) => {
-    res.send('1.0.0');
+    res.send('1.0.1');
   });
 }
