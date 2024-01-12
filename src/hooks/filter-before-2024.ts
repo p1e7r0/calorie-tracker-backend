@@ -1,9 +1,9 @@
 // Use this hook to manipulate incoming or outgoing data.
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
-import { Hook, HookContext } from '@feathersjs/feathers';
+import { HookContext } from '../declarations';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const filterBefore2024 = (options = {}): Hook => {
+const filterBefore2024 = (options = {}) => {
   return async (context: HookContext): Promise<HookContext> => {
     const { query } = context.params.query ?? {};
 

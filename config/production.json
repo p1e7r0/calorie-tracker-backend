@@ -1,5 +1,5 @@
 {
   "host": "calorie-tracker-backend-app.feathersjs.com",
   "port": "PORT",
-  "mongodb": "MONGODB"
+  "mongodb": "MONGO_DB"
 }

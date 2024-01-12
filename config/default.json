@@ -1,10 +1,44 @@
 {
   "host": "localhost",
   "port": 3030,
-  "public": "../public/",
+  "public": "./public/",
   "paginate": {
     "default": 50,
     "max": 50
   },
-  "mongodb": "MONGODB"
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "hndDsWN+vkY+/Y6HCqfFK02oAYQ=",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/",
+      "auth0": {
+        "key": "CLIENT_ID",
+        "secret": "CLIENT_SECRET",
+        "subdomain": "DOMAIN",
+        "scope": [
+          "profile",
+          "openid",
+          "email"
+        ]
+      }
+    }
+  }
 }

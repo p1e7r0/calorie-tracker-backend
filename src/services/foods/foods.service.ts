@@ -7,7 +7,7 @@ import hooks from './foods.hooks';
 // Add this service to the service type index
 declare module '../../declarations' {
   interface ServiceTypes {
-    foods: Foods & ServiceAddons<any>;
+    foods: Foods;
   }
 }
 
@@ -19,7 +19,7 @@ export default function (app: Application): void {
   };
 
   // Initialize our service with any options it requires
-  app.use('/foods', new Foods(options, app));
+  app.use('foods', new Foods(options, app));
 
   // Get our initialized service so that we can register hooks
   const service = app.service('foods');

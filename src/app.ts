@@ -1,30 +1,39 @@
+import compress from 'compression';
+import cors from 'cors';
+import * as dotenv from 'dotenv';
+dotenv.config();
+import helmet from 'helmet';
 import path from 'path';
 import favicon from 'serve-favicon';
-import compress from 'compression';
-import helmet from 'helmet';
-import cors from 'cors';
 
-import feathers from '@feathersjs/feathers';
 import configuration from '@feathersjs/configuration';
-import 'dotenv/config';
+import { feathers } from '@feathersjs/feathers';
 
-import express from '@feathersjs/express';
+import express, {
+  errorHandler,
+  json,
+  notFound,
+  rest,
+  static as staticFiles,
+  urlencoded,
+} from '@feathersjs/express';
 
+import appHooks from './app.hooks';
+import channels from './channels';
 import { Application } from './declarations';
 import logger from './logger';
 import middleware from './middleware';
-import services from './services';
-import appHooks from './app.hooks';
-import channels from './channels';
-import { HookContext as FeathersHookContext } from '@feathersjs/feathers';
 import mongodb from './mongodb';
+import services from './services';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const app: Application = express(feathers());
-export type HookContext<T = any> = { app: Application } & FeathersHookContext<T>;
 
 // Load app configuration
 app.configure(configuration());
+
+console.log('public', app.get('public'));
+
 // Enable security, CORS, compression, favicon and body parsing
 app.use(
   helmet({
@@ -33,14 +42,14 @@ app.use(
 );
 app.use(cors());
 app.use(compress());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Host the public folder
-app.use('/', express.static(app.get('public')));
+app.use('/', staticFiles(app.get('public')));
 
 // Set up Plugins and providers
-app.configure(express.rest());
+app.configure(rest());
 app.configure(mongodb);
 
 // Configure other middleware (see `middleware/index.ts`)
@@ -51,9 +60,15 @@ app.configure(services);
 app.configure(channels);
 
 // Configure a middleware for 404s and the error handler
-app.use(express.notFound());
-app.use(express.errorHandler({ logger } as any));
+app.use(notFound());
+app.use(errorHandler({ logger }));
 
 app.hooks(appHooks);
+
+feathers.setDebug((name) => {
+  return (...args) => {
+    console.log(name, ...args);
+  };
+});
 
 export default app;
