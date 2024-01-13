@@ -27,7 +27,7 @@
     "test": "npm run lint && npm run compile && npm run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
     "dev": "ts-node-dev --no-notify src/",
-    "start": "npm run compile && node -max-old-space-size=256 lib/",
+    "start": "node -max-old-space-size=256 lib/",
     "jest": "jest --forceExit",
     "compile": "shx rm -rf lib/ && tsc",
     "publish": "docker build -t p1e7r0/calorie-tracker-backend . && docker push p1e7r0/calorie-tracker-backend"
